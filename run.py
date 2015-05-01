@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
-from app import Aplicacao
+from app import aplicacao
 
 if __name__ == "__main__":
-	Aplicacao.run()
+	aplicacao.run()
