@@ -10,17 +10,40 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/semantic.min.js') }}"></script>
 </head>
 <body>
-    <div class="ui piled segment">
-	{% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul>
-        {% for message in messages %}
-            <li>{{ message }} </li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
-    {% block body %}{% endblock %}
+    <div class="ui inverted menu grid stackable center aligned page">
+        <div class="row">
+          <a class="active item">      
+            Início         
+          </a>
+          <a class="item">
+            Serviços
+          </a>
+          <a class="item">
+            Contato
+          </a>
+          <a class="item">
+            Sobre
+          </a>
+        </div>
+    </div>
+    <div class="ui one column stackable center aligned page grid">
+        <div class="wide">
+        	{% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }} </li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+    <div class="ui grid">
+        <div class="center aligned grid column">
+            Copyright&copy; {{g.ano}}
+        </div>
     </div>
 </body>
 </html>

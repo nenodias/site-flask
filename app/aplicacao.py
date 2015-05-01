@@ -5,12 +5,12 @@ from flask.json import jsonify
 from flask.templating import render_template
 import config
 from flask.helpers import make_response
+import datetime
 #Blueprints
 from home_controller import home
 
 app = Flask(__name__)
 app.config.from_pyfile("config.py")
-
 email = config.settingEmail(app)
 app.register_blueprint(home)
 
@@ -21,3 +21,8 @@ def run():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+@app.before_request
+def detect_user_language():
+	#Setando ano na variável global pega no meu pé
+	g.ano = datetime.date.today().year
