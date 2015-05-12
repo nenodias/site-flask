@@ -1,2 +1,2 @@
 # site-flask
-Site feito com o FLas e Python
+Site feito com o Flask e Python
